@@ -1,0 +1,34 @@
+data = importdata('accel_better_restart.txt');
+
+
+accel_x = data(:,1);
+accel_y = data(:,2);
+accel_z = data(:,3);
+
+Time = 1:length(accel_x);
+Time = Time*0.01612903;
+
+data = importdata('accel_better_wrong.txt');
+
+accel_x_wrong = data(:,1);
+accel_y_wrong = data(:,2);
+accel_z_wrong = data(:,3);
+
+
+Time_wrong_tmp = 1:length(accel_x_wrong);
+diff = length(Time_wrong_tmp)-length(Time);
+
+Time_wrong = 1:(length(accel_x_wrong) - diff);
+Time_wrong = Time_wrong*0.01612903;
+
+
+
+
+hold on
+plot(Time_wrong, accel_x_wrong(diff+1:end),'r');
+
+plot(Time, accel_x,'black');
+xlabel('Time [s]')
+ylabel('Acceleration in x direction [m/s^2]')
+% plot(accel_y)
+% plot(accel_z)

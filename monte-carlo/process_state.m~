@@ -1,0 +1,5 @@
+clear
+close
+
+data = importdata('1/vicon_state_24171730.txt');
+pos_x = data(:,
